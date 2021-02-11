@@ -54,7 +54,6 @@ namespace FizzAPI
 
             services.AddVersion();
 
-
             //services.AddHealthChecks()
             //    .AddDbContextCheck<ApplicationDbContext>(name: "Application DB Context", failureStatus: HealthStatus.Degraded)
             //    .AddUrlGroup(new Uri("https://github.com/Folivi95/FizzAPI/"), name: "My personal website", failureStatus: HealthStatus.Degraded)
@@ -95,22 +94,22 @@ namespace FizzAPI
 
             app.UseAuthorization();
             app.ConfigureSwagger();
-            app.UseHealthChecks("/healthz", new HealthCheckOptions
-            {
-                Predicate = _ => true,
-                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
-                ResultStatusCodes =
-                {
-                    [HealthStatus.Healthy] = StatusCodes.Status200OK,
-                    [HealthStatus.Degraded] = StatusCodes.Status500InternalServerError,
-                    [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable,
-                },
-            }).UseHealthChecksUI(setup =>
-              {
-                  setup.ApiPath = "/healthcheck";
-                  setup.UIPath = "/healthcheck-ui";
-                  //setup.AddCustomStylesheet("Customization/custom.css");
-              });
+            //app.UseHealthChecks("/healthz", new HealthCheckOptions
+            //{
+            //    Predicate = _ => true,
+            //    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
+            //    ResultStatusCodes =
+            //    {
+            //        [HealthStatus.Healthy] = StatusCodes.Status200OK,
+            //        [HealthStatus.Degraded] = StatusCodes.Status500InternalServerError,
+            //        [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable,
+            //    },
+            //}).UseHealthChecksUI(setup =>
+            //  {
+            //      setup.ApiPath = "/healthcheck";
+            //      setup.UIPath = "/healthcheck-ui";
+            //      //setup.AddCustomStylesheet("Customization/custom.css");
+            //  });
 
 
             app.UseEndpoints(endpoints =>
