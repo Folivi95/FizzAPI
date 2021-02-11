@@ -16,8 +16,6 @@ namespace FizzAPI.Test.Integration
                 .UseStartup<Startup>());
 
             Client = server.CreateClient();
-
-
         }
     }
 }

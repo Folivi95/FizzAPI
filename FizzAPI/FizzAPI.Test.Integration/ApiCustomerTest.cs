@@ -20,5 +20,7 @@ namespace FizzAPI.Test.Integration
 
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         }
+
+        [TestCase("Get", "api/v1/")]
     }
 }

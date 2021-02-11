@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace FizzAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v{version:apiVersion}/Account")]
+    [ApiVersion("1.0")]
     [ApiController]
     public class AccountController : ControllerBase
     {

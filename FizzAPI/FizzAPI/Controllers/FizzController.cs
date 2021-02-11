@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace FizzAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v{version:apiVersion}/Fizz")]
+    [ApiVersion("1.0")]
     [ApiController]
     public class FizzController : ControllerBase
     {
@@ -33,10 +34,7 @@ namespace FizzAPI.Controllers
         [HttpGet("{number}")]
         public ActionResult GetFizzResult(int number)
         {
-            switch (FizzEnum)
-            {
-                default:
-            }
+            return Ok(_fizzService.DetermineFizz(number));
         }
     }
 }
