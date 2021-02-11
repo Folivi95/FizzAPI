@@ -36,5 +36,29 @@ namespace FizzAPI.Test.Integration
 
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         }
+
+        [Test]
+        public async Task OutsideFizzConstraint()
+        {
+            Random r = new Random();
+            int number = r.Next(102, 1000);
+
+            using var client = new TestClientProvider().Client;
+
+            var request = new HttpRequestMessage(new HttpMethod("GET"),
+                $"api/v1/Fizz/{number}");
+
+            var response = await client.SendAsync(request);
+
+            //response.EnsureSuccessStatusCode();
+
+            var res = await response.Content.ReadAsStringAsync();
+
+            var parsedResult = res.ToString().Split(new[] { ',', ':' }, StringSplitOptions.RemoveEmptyEntries);
+
+            response.StatusCode = parsedResult[1].Equals("500") ? HttpStatusCode.BadRequest : HttpStatusCode.Ambiguous;
+
+            Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode );
+        }
     }
 }
