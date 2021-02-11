@@ -55,15 +55,15 @@ namespace FizzAPI
             services.AddVersion();
 
 
-            services.AddHealthChecks()
-                .AddDbContextCheck<ApplicationDbContext>(name: "Application DB Context", failureStatus: HealthStatus.Degraded)
-                .AddUrlGroup(new Uri("https://amitpnk.github.io/"), name: "My personal website", failureStatus: HealthStatus.Degraded)
-                .AddSqlServer(Configuration.GetConnectionString("OnionArchConn"));
+            //services.AddHealthChecks()
+            //    .AddDbContextCheck<ApplicationDbContext>(name: "Application DB Context", failureStatus: HealthStatus.Degraded)
+            //    .AddUrlGroup(new Uri("https://github.com/Folivi95/FizzAPI/"), name: "My personal website", failureStatus: HealthStatus.Degraded)
+            //    .AddSqlServer(Configuration.GetConnectionString("FizzAPIConn"));
 
-            services.AddHealthChecksUI(setupSettings: setup =>
-            {
-                setup.AddHealthCheckEndpoint("Basic Health Check", $"/healthz");
-            });
+            //services.AddHealthChecksUI(setupSettings: setup =>
+            //{
+            //    setup.AddHealthCheckEndpoint("Basic Health Check", $"/healthz");
+            //});
 
             services.AddFeatureManagement();
         }

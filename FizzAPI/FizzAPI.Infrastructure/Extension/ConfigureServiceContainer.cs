@@ -61,19 +61,14 @@ namespace FizzAPI.Infrastructure.Extension
                     "OpenAPISpecification",
                     new OpenApiInfo()
                     {
-                        Title = "Onion Architecture WebAPI",
+                        Title = "Fizz RESTful API",
                         Version = "1",
-                        Description = "Through this API you can access customer details",
+                        Description = "Through this API you can access result of Fizz algorithm",
                         Contact = new OpenApiContact()
                         {
-                            Email = "amit.naik8103@gmail.com",
-                            Name = "Amit Naik",
-                            Url = new Uri("https://amitpnk.github.io/")
-                        },
-                        License = new OpenApiLicense()
-                        {
-                            Name = "MIT License",
-                            Url = new Uri("https://opensource.org/licenses/MIT")
+                            Email = "joshua.folivi@gmail.com",
+                            Name = "Joshua Folivi",
+                            Url = new Uri("https://github.com/Folivi95/FizzAPI/")
                         }
                     });
 
@@ -135,7 +130,7 @@ namespace FizzAPI.Infrastructure.Extension
         //{
         //    serviceCollection.AddHealthChecks()
         //         //.AddDbContextCheck<ApplicationDbContext>(name: "Application DB Context", failureStatus: HealthStatus.Degraded)
-        //         .AddUrlGroup(new Uri("https://amitpnk.github.io/"), name: "My personal website", failureStatus: HealthStatus.Degraded)
+        //         .AddUrlGroup(new Uri("https://github.com/Folivi95/FizzAPI/"), name: "My personal website", failureStatus: HealthStatus.Degraded)
         //         .AddSqlServer(configuration.GetConnectionString("OnionArchConn"));
         //    //.AddSqlServer(configuration.GetConnectionString("IdentityConnection"));
 
