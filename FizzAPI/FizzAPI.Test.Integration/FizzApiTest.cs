@@ -9,7 +9,7 @@ namespace FizzAPI.Test.Integration
 {
     public class FizzApiTest
     {
-        [TestCase("Get", "https://localhost:44356/api/v1/Fizz/15")]
+        [TestCase("Get", "api/v1/Fizz/15")]
         //[Ignore("Need to fix jwt setting value and handle 401 error")]
         public async Task GetFizzResult(string method, string URL)
         {
@@ -19,7 +19,7 @@ namespace FizzAPI.Test.Integration
 
             // response.EnsureSuccessStatusCode();
 
-            Assert.AreEqual(HttpStatusCode.InternalServerError, response.StatusCode);
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         }
 
         [Test]
